@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transmission</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- AUTH SCREEN -->
+  <div id="auth-screen" class="screen">
+    <div class="auth-panel">
+      <div class="dial">
+        <div class="dial-ring"></div>
+        <div class="dial-needle"></div>
+      </div>
+      <h1>TRANSMISSION</h1>
+      <p class="subtitle" id="auth-subtitle">sign in to key up</p>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="login">LOG IN</button>
+        <button class="tab" data-tab="signup">SIGN UP</button>
+      </div>
+
+      <form id="auth-form" autocomplete="off">
+        <input id="auth-username" type="text" placeholder="CALL SIGN" maxlength="32" required />
+        <input id="auth-password" type="password" placeholder="PASSPHRASE" minlength="6" required />
+        <button type="submit" id="auth-submit">LOG IN</button>
+      </form>
+      <p id="auth-error" class="error"></p>
+    </div>
+  </div>
+
+  <!-- LOBBY SCREEN -->
+  <div id="lobby-screen" class="screen hidden">
+    <div class="lobby-panel">
+      <header class="lobby-header">
+        <div>
+          <div class="you-label">ON AIR AS</div>
+          <div id="lobby-you-name" class="you-name">—</div>
+        </div>
+        <button id="logout-btn" class="ghost-btn">LOG OUT</button>
+      </header>
+
+      <h2>FREQUENCIES</h2>
+
+      <form id="create-room-form" class="create-room-form" autocomplete="off">
+        <input id="new-room-name" type="text" placeholder="New frequency name…" maxlength="64" required />
+        <button type="submit">CREATE</button>
+      </form>
+      <p id="room-error" class="error"></p>
+
+      <ul id="room-list" class="room-list"></ul>
+    </div>
+  </div>
+
+  <!-- CHAT SCREEN -->
+  <div id="chat-screen" class="screen hidden">
+    <aside class="sidebar">
+      <button id="back-to-lobby" class="ghost-btn full-width">← FREQUENCIES</button>
+      <div class="station-id">
+        <span class="dot on"></span>
+        <div>
+          <div class="you-label">ON AIR AS</div>
+          <div id="you-name" class="you-name">—</div>
+        </div>
+      </div>
+      <div class="roster-label">RECEIVING STATIONS</div>
+      <ul id="roster-list" class="roster-list"></ul>
+    </aside>
+
+    <main class="log-panel">
+      <header class="log-header">
+        <span id="room-title">FREQUENCY LOG</span>
+        <span id="clock" class="clock">--:--:--</span>
+      </header>
+
+      <div id="log" class="log"></div>
+
+      <div id="typing-indicator" class="typing-indicator"></div>
+
+      <form id="message-form" class="composer" autocomplete="off">
+        <input id="message-input" type="text" placeholder="Transmit a message…" maxlength="2000" />
+        <button type="submit">SEND</button>
+      </form>
+    </main>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
